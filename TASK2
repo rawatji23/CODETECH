@@ -1,0 +1,48 @@
+/** Develop a CPP program to track and manage student grades. The
+program should allow the user to input grades for different subjects or
+assignments, calculate the average grade, and display the overall
+grade along with any additional information (such as letter grade or
+GPA). **/
+
+import java.util.ArrayList;
+import java.util.Scanner;
+public class SimpleGradeTracker {
+     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Double> grades = new ArrayList<>();
+        double grade;
+        char addMore;
+        double sum = 0;
+        double average;
+        String letterGrade;
+        System.out.println("Student Grade Tracker");
+        do {
+            System.out.print("Enter a grade: ");
+            grade = scanner.nextDouble();
+            grades.add(grade);
+            System.out.print("Do you want to enter another grade? (y/n): ");
+            addMore = scanner.next().charAt(0);
+        } while (addMore == 'y' || addMore == 'Y');
+        for (double g : grades) {
+            sum += g;
+        }
+        if (!grades.isEmpty()) {
+            average = sum / grades.size();
+        } else {
+            average = 0;
+        }
+        if (average >= 90) {
+            letterGrade = "A";
+        } else if (average >= 80) {
+            letterGrade = "B";
+        } else if (average >= 70) {
+            letterGrade = "C";
+        } else if (average >= 60) {
+            letterGrade = "D";
+        } else {
+            letterGrade = "F";
+        }
+        System.out.printf("Average Grade: %.2f%n", average);
+        System.out.println("Letter Grade: " + letterGrade);
+    }
+}
