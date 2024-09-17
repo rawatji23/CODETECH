@@ -1,0 +1,47 @@
+/**Create a Java program that acts as a basic calculator. It should prompt the user to
+enter two numbers and choose an operation (addition, subtraction, multiplication,
+division). Then, it should perform the selected operation and display the result to the
+user.**/
+
+import java.util.Scanner;
+public class BasicCalculator {
+       public static void main(String[] args) {
+        double result=0;
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the first number: ");
+        double n1 = scanner.nextDouble();
+        System.out.print("Enter the second number: ");
+        double n2 = scanner.nextDouble();
+        System.out.println("Choose an operation which you want:");
+        System.out.println("1. Addition");
+        System.out.println("2. Subtraction");
+        System.out.println("3. Multiplication");
+        System.out.println("4. Division");
+        int choice = scanner.nextInt();
+        switch (choice) {
+            case 1:
+                result = n1+n2;
+                System.out.println("Answer is " + result);
+                break;
+            case 2:
+                result = n1-n2;
+                System.out.println("Answer is " + result);
+                break;
+            case 3:
+                result = n1*n2;
+                System.out.println("Answer is " + result);
+                break;
+            case 4:
+                if (n2 != 0) {
+                    result = n1/n2;
+                    System.out.println("Answer is " + result);
+                } else {
+                    System.out.println("Divisible by zero is not allowed ");
+                }
+                break;
+            default:
+                System.out.println("Invalid choice. Please select a valid operation.");
+                break;
+        }
+    }
+}
